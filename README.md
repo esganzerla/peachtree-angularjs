@@ -28,3 +28,8 @@ I used eslinter to improve quality and consistency of the code.
 ### Possible design differences
 - **Panel title colors:** Considering I did not know the precise font color for the box titles, I applied the default opacity for the main text from Material Design Guidelines (https://material.io/guidelines/style/color.html#color-usability).
 - **Box Shadow:** Considering I did not know the precise specifications for the box shadows, I applied also here Material Design specifications for a level that seemd like the ones in the layout (https://material.io/guidelines/resources/shadows.html).
+
+### ScreenShots
+![large screen](https://github.com/esganzerla/peachtree-angularjs/blob/master/screenshots/large-screen.png "Large Screen")
+![medium screen](https://github.com/esganzerla/peachtree-angularjs/blob/master/screenshots/medium-screen.png "Medium Screen") 
+![small screen](https://github.com/esganzerla/peachtree-angularjs/blob/master/screenshots/small-screen.png "Small Screen") 
