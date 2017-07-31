@@ -1,5 +1,5 @@
 (function(){
-  "use strict";
+  'use strict';
 
   angular
     .module('peachtree')
@@ -9,7 +9,7 @@
       controllerAs: 'vm'
     });
 
-  TransactionsListController.$inject = ['storageService']
+  TransactionsListController.$inject = ['storageService'];
 
   function TransactionsListController (storageService) {
     var vm = this;
@@ -22,26 +22,26 @@
     vm.store = {
       isLoading: true,
       transactions: []
-    }
-    vm.sort = sort
-    vm.escapeReset = escapeReset
+    };
+    vm.sort = sort;
+    vm.escapeReset = escapeReset;
 
     activate();
 
     function activate () {
-      vm.store = storageService.getState()
+      vm.store = storageService.getState();
       sort('transactionDate');
     }
     function sort (field) {
       vm.sortAsc = (vm.sortBy !== field) ? vm.sortAsc : !vm.sortAsc;
       vm.sortBy = field;
       vm.sortFilter = (vm.sortAsc !== true) ? field : '-' + field;
-      vm.sortingClass = (vm.sortAsc === true) ? 'sorting-asc' : 'sorting-desc'
+      vm.sortingClass = (vm.sortAsc === true) ? 'sorting-asc' : 'sorting-desc';
     }
     function escapeReset ($event) {
       if ($event.keyCode === 27) {
-        vm.filter = ''
+        vm.filter = '';
       }
     }
   }
-})()
+})();

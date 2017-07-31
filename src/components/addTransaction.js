@@ -1,5 +1,5 @@
 (function(){
-  "use strict";
+  'use strict';
 
   angular
     .module('peachtree')
@@ -14,20 +14,20 @@
   function AddTransaction (storage, $window, $timeout) {
     var vm = this;
 
-    vm.store = {}
-    vm.account = 'Free Checking (4692)'
-    vm.amount = ''
-    vm.amountValid = true
-    vm.merchant = ''
-    vm.merchantValid = true
-    vm.validateField = validateField
-    vm.confirmTransaction = confirmTransaction
-    vm.addTransaction = addTransaction
+    vm.store = {};
+    vm.account = 'Free Checking (4692)';
+    vm.amount = '';
+    vm.amountValid = true;
+    vm.merchant = '';
+    vm.merchantValid = true;
+    vm.validateField = validateField;
+    vm.confirmTransaction = confirmTransaction;
+    vm.addTransaction = addTransaction;
 
     activate();
 
     function confirmTransaction () {
-      if (validateForm() === false) return
+      if (validateForm() === false) return;
       $window.$('#confirmTransaction').modal();
     }
     function validateForm () {
@@ -54,7 +54,7 @@
       }
     }
     function checkBalance () {
-      return ((vm.store.balance - vm.amount) > -550)
+      return ((vm.store.balance - vm.amount) > -550);
     }
 
     function addTransaction () {
@@ -75,10 +75,10 @@
       $timeout(function(){ alert('You transaction was successful!'); }, 50);
     }
     function resetFormData () {
-      vm.amount = ''
-      vm.merchantAmount = true
-      vm.merchant = ''
-      vm.merchantValid = true
+      vm.amount = '';
+      vm.merchantAmount = true;
+      vm.merchant = '';
+      vm.merchantValid = true;
     }
 
     function activate () {

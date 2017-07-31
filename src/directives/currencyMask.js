@@ -1,5 +1,5 @@
 (function(){
-  "use strict";
+  'use strict';
 
   angular
     .module('peachtree')
@@ -8,19 +8,19 @@
         restrict: 'A',
         require: 'ngModel',
         link: function (scope, element, attrs, ctrl) {
-          element.on('keypress', validateKey)
-          element.on('paste', validatePaste)
+          element.on('keypress', validateKey);
+          element.on('paste', validatePaste);
         }
-      }
-    })
+      };
+    });
 
     function validateKey ($event) {
       var keyIsEnter = $event.which === 13;
       if (keyIsEnter) return;
 
-      var isDecimal = ($event.target.value.toString().indexOf('.') > -1)
-      var regex = (isDecimal) ? /[\d]/ : /[\d\.]/
-      var isValidChar = regex.test($event.key)
+      var isDecimal = ($event.target.value.toString().indexOf('.') > -1);
+      var regex = (isDecimal) ? /[\d]/ : /[\d\.]/;
+      var isValidChar = regex.test($event.key);
 
       if (isValidChar === false) {
         $event.preventDefault();
@@ -33,4 +33,4 @@
         $event.preventDefault();
       }
     }
-})()
+})();

@@ -1,5 +1,5 @@
 (function(){
-  "use strict";
+  'use strict';
 
   angular
     .module('peachtree')
@@ -9,7 +9,7 @@
         transactions: [],
         merchants: [],
         balance: 5824.76
-      }
+      };
       var emptyTransaction = {
         amount: '',
         categoryCode: '',
@@ -17,39 +17,39 @@
         merchantLogo: '',
         transactionDate: 0,
         transactionType: ''
-      }
+      };
       activate();
 
       return {
         addTransaction: addTransaction,
         getState: getState
-      }
+      };
 
       function activate () {
-        state.isLoading = true
+        state.isLoading = true;
         $http.get('./data/transactions.json')
           .then(function (response) {
-            var transactions = response.data.data
-            state.transactions = transactions.map(parseFloatAmount)
-            state.merchants = transactions.map(getMerchantFromTransaction)
-            state.isLoading = false
-          })
+            var transactions = response.data.data;
+            state.transactions = transactions.map(parseFloatAmount);
+            state.merchants = transactions.map(getMerchantFromTransaction);
+            state.isLoading = false;
+          });
       }
       function parseFloatAmount (transaction) {
-        transaction.amount = parseFloat(transaction.amount)
-        return transaction
+        transaction.amount = parseFloat(transaction.amount);
+        return transaction;
       }
       function getMerchantFromTransaction (transaction) {
         return {
           name: transaction.merchant,
           logo: transaction.merchantLogo
-        }
+        };
       }
 
       function addTransaction (transactionData) {
         transactionData = normalizeTransactionData(transactionData);
         state.transactions.push(transactionData);
-        updateBalance(transactionData.amount)
+        updateBalance(transactionData.amount);
       }
       function normalizeTransactionData (transactionData) {
         return angular.extend(
