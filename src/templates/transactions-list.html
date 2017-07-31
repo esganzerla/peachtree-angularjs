@@ -1,0 +1,86 @@
+<div ng-show="(vm.store.isLoading === true)">
+  Loading transactions...
+</div>
+
+<div ng-show="(vm.store.isLoading === false) && (vm.store.transactions.length === 0)">
+  <p>
+    No transactions registered yet.
+  </p>
+  <p>
+    You can add a transaction by using the form
+    <span class="visible-lg-inline">on the left side.</span>
+    <span class="hidden-lg">above.</span>
+  </p>
+</div>
+<div ng-hide="vm.store.isLoading || (vm.store.transactions.length === 0)">
+  <div class="row search-component">
+    <form action="javascript:void(0)">
+      <div class="col-lg-5 form-group">
+        <input
+          ng-model="vm.filter"
+          ng-keyup="vm.escapeReset($event)"
+          class="search-input form-control"
+          placeholder="Search by typing..."
+          type="text"
+        >
+        <button
+          ng-show="vm.filter.length > 0"
+          ng-click="vm.filter = ''"
+          class="search-reset"
+          aria-label="reset search"
+        >
+        &#215;
+      </button>
+      </div>
+    </form>
+    <div class="col-lg-7 sorting-component">
+      <b>Sort by</b>
+      <div class="btn-group sorting-btn-group" role="group">
+        <button
+          ng-click="vm.sort('transactionDate')"
+          ng-class="(vm.sortBy === 'transactionDate') ? vm.sortingClass : false"
+          class="sorting-btn btn btn-default"
+        >
+          Date</button>
+        <button
+          ng-click="vm.sort('merchant')"
+          ng-class="(vm.sortBy === 'merchant') ? vm.sortingClass : false"
+          class="sorting-btn btn btn-default"
+        >
+          Beneficiary</button>
+        <button
+          ng-click="vm.sort('amount')"
+          ng-class="(vm.sortBy === 'amount') ? vm.sortingClass : false"
+          class="sorting-btn btn btn-default"
+        >
+          Amount</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="padding-vertical-10">
+    <ul class="list-group">
+      <li
+        class="list-group-item transaction-row table"
+        ng-repeat="transaction in transactions = (vm.store.transactions | filter: vm.filter) | orderBy: vm.sortFilter track by $index"
+        ng-style="{'border-left-color': transaction.categoryCode}"
+      >
+        <div class="transaction-row-item transaction-row-item__date">
+          {{ transaction.transactionDate | date: "MMM. d" }}
+        </div>
+        <div class="transaction-row-item transaction-row-item__image">
+          <img class="transaction-image" ng-src="{{ transaction.merchantLogo }}">
+        </div>
+        <div class="transaction-row-item transaction-row-item__description">
+          <h3 class="transaction-title">{{ transaction.merchant }}</h3><br> {{ transaction.transactionType }}
+        </div>
+        <div class="transaction-row-item transaction-row-item__amount">
+          {{ transaction.amount | currency }}
+        </div>
+      </li>
+    </ul>
+    <p ng-show="transactions.length === 0" class="text-center">
+      No records found for "{{ vm.filter }}".
+    </p>
+  </div>
+</div>

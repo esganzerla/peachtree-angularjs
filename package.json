@@ -1,0 +1,20 @@
+{
+  "name": "peachtree-bank-angularjs",
+  "version": "1.0.0",
+  "description": "AngularJS 1.5 skills show off.",
+  "main": "index.html",
+  "author": "Eduardo Sganzerla",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.5.9",
+    "angular-resource": "1.5.9",
+    "browser-sync": "^2.18.13",
+    "eslint": "^4.3.0",
+    "eslint-plugin-angular": "^3.0.0",
+    "jquery": "1.12.4"
+  },
+  "scripts": {
+    "dev": "browser-sync start --server --files '*, src/*, src/*/*'",
+    "linter": "eslint --ext .js src/"
+  }
+}
