@@ -1,3 +1,5 @@
+Project up and running here -> http://eduardos.ga/peachbank/
+
 ## Framework
 For this project I decided to use version 1.5(.9) of AngularJS. This is a a framework I had not paied much attention in the past and that is precisely why Adriaan recommended me to use and I took the challange.
 It was a fun experience, which led me to understand a different structure than the ones I am used to.
