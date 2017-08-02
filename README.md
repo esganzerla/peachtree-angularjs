@@ -4,10 +4,10 @@ Project up and running here -> http://eduardos.ga/peachbank/
 For this project I decided to use version 1.5(.9) of AngularJS. This is a a framework I had not paied much attention in the past and that was a good challange.
 It was a fun experience, which led me to understand a different structure than the ones I am used to.
 
-## Linting
+## What I have done
+### Linting
 I used eslinter to improve quality and consistency of the code.
 
-## What I have done
 ### Images
 - **Resized logo image.** I decided to resize (and compressed) the logo image considering it was a bit smaller in the design I received and for this project it would not reflect badly in other parts.
 - **Compressed background image.** This image had 1.1mb and now it has only 300kb, thanks to https://tinyjpg.com. (NOTE: The imagem in the design I received had a different framing, but it still looks good though.)
